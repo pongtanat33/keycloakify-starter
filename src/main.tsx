@@ -10,7 +10,25 @@ import { getKcContextMock } from "./login/KcPageStory";
 if (import.meta.env.DEV) {
     window.kcContext = getKcContextMock({
         pageId: "login.ftl",
-        overrides: {}
+        overrides: {
+            social: {
+                displayInfo: true,
+                providers: [
+                    {
+                        loginUrl: "#google",
+                        alias: "google",
+                        providerId: "google",
+                        displayName: "Google"
+                    },
+                    {
+                        loginUrl: "#microsoft",
+                        alias: "microsoft",
+                        providerId: "microsoft",
+                        displayName: "Microsoft"
+                    }
+                ]
+            }
+        }
     });
 }
 

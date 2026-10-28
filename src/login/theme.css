@@ -1,0 +1,424 @@
+/* ==========================================================================
+   Global Font Assignment: IBM Plex Sans Thai
+   ========================================================================== */
+
+*,
+*::before,
+*::after,
+html,
+body,
+input,
+button,
+select,
+textarea,
+optgroup,
+p,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+label,
+a {
+  font-family: 'IBM Plex Sans Thai', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+}
+
+/* ==========================================================================
+   CarbonForm / BufferBox Theme Stylesheet
+   Split Screen Layout (แบ่งซ้ายและขวา 50% / 50%)
+   ========================================================================== */
+
+/* Split Screen Root Container */
+.split-container {
+  display: flex !important;
+  flex-direction: row !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  min-height: 100vh !important;
+  max-width: 100vw !important;
+  max-height: 100vh !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  background-color: #ffffff !important;
+  position: relative !important;
+  box-sizing: border-box !important;
+}
+
+/* ฝั่งซ้าย (Left Side Panel) - 50% */
+.split-left-panel {
+  flex: 0 0 50% !important;
+  width: 50% !important;
+  max-width: 50% !important;
+  height: 100vh !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  background-color: #ffffff !important;
+  position: relative !important;
+  z-index: 10 !important;
+  padding: 1.5rem 1rem !important;
+  box-sizing: border-box !important;
+}
+
+/* ฝั่งขวา (Right Side Panel) - 50% */
+.split-right-panel {
+  flex: 0 0 50% !important;
+  width: 50% !important;
+  max-width: 50% !important;
+  height: 100vh !important;
+  position: relative !important;
+  overflow: hidden !important;
+  background-color: #f3f4f6 !important;
+  display: block !important;
+  box-sizing: border-box !important;
+}
+
+.split-right-panel img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  display: block !important;
+  user-select: none !important;
+}
+
+/* Responsive: บนหน้าจอมือถือ (<= 768px) */
+@media (max-width: 768px) {
+  .split-left-panel {
+    flex: 0 0 100% !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .split-right-panel {
+    display: none !important;
+  }
+}
+
+/* ==========================================================================
+   Center Content & Form Styling
+   ========================================================================== */
+
+.split-center-content {
+  flex: 1 0 auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  max-width: 360px !important;
+  margin: auto 0 !important;
+  padding: 1rem 0 !important;
+  box-sizing: border-box !important;
+}
+
+.carbon-logo {
+  width: 90px !important;
+  height: 90px !important;
+  user-select: none !important;
+}
+
+.carbon-title {
+  color: #050c17 !important;
+  font-size: 28px !important;
+  font-weight: 600 !important;
+  line-height: 1.2 !important;
+  letter-spacing: -0.015em !important;
+  text-align: center !important;
+  margin-top: 24px !important;
+  margin-bottom: 0 !important;
+}
+
+.carbon-subtitle {
+  color: #647081 !important;
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  line-height: 1.5 !important;
+  text-align: center !important;
+  margin-top: 8px !important;
+  margin-bottom: 0 !important;
+}
+
+.carbon-form {
+  display: flex !important;
+  flex-direction: column !important;
+  width: 100% !important;
+  max-width: 360px !important;
+  box-sizing: border-box !important;
+}
+
+/* Form Groups & Inputs */
+.carbon-label {
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  color: #050c17 !important;
+  display: block !important;
+  line-height: 1.4 !important;
+}
+
+.carbon-input {
+  width: 100% !important;
+  height: 40px !important;
+  padding: 0 16px !important;
+  border-radius: 6px !important;
+  border: 1px solid #d2d8df !important;
+  font-size: 16px !important;
+  color: #050c17 !important;
+  background-color: transparent !important;
+  outline: none !important;
+  box-sizing: border-box !important;
+  margin-top: 6px !important;
+  transition: border-color 0.15s, box-shadow 0.15s !important;
+}
+
+.carbon-input:focus {
+  border-color: #2162c5 !important;
+  box-shadow: 0 0 0 1px #2162c5 !important;
+}
+
+.carbon-input-error {
+  border-color: #f04438 !important;
+  box-shadow: 0 0 0 1px #f04438 !important;
+}
+
+.carbon-error-text {
+  margin-top: 6px !important;
+  margin-bottom: 0 !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  color: #f04438 !important;
+  max-width: 360px !important;
+  word-break: break-word !important;
+}
+
+/* Password Input & Eye Toggle */
+.carbon-password-wrapper {
+  position: relative !important;
+  width: 100% !important;
+  margin-top: 6px !important;
+  box-sizing: border-box !important;
+}
+
+.carbon-password-input {
+  width: 100% !important;
+  height: 40px !important;
+  padding-left: 16px !important;
+  padding-right: 40px !important;
+  border-radius: 6px !important;
+  border: 1px solid #d2d8df !important;
+  font-size: 16px !important;
+  color: #050c17 !important;
+  background-color: transparent !important;
+  outline: none !important;
+  box-sizing: border-box !important;
+  transition: border-color 0.15s, box-shadow 0.15s !important;
+}
+
+.carbon-password-input:focus {
+  border-color: #2162c5 !important;
+  box-shadow: 0 0 0 1px #2162c5 !important;
+}
+
+.carbon-password-toggle {
+  position: absolute !important;
+  right: 0 !important;
+  top: 0 !important;
+  width: 40px !important;
+  height: 40px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: #929caa !important;
+  cursor: pointer !important;
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  padding: 0 !important;
+  transition: color 0.15s !important;
+}
+
+.carbon-password-toggle:hover {
+  color: #647081 !important;
+}
+
+/* Primary Submit Button */
+.carbon-submit-btn {
+  width: 100% !important;
+  height: 40px !important;
+  background-color: #2162c5 !important;
+  color: #ffffff !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  border-radius: 6px !important;
+  border: none !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-top: 24px !important;
+  transition: background-color 0.15s !important;
+  box-sizing: border-box !important;
+}
+
+.carbon-submit-btn:hover:not(:disabled) {
+  background-color: #164c9a !important;
+}
+
+.carbon-submit-btn:active:not(:disabled) {
+  background-color: #0c376f !important;
+}
+
+.carbon-submit-btn:disabled {
+  opacity: 0.6 !important;
+  cursor: not-allowed !important;
+}
+
+/* Social Login Section (Google & Microsoft) */
+.carbon-social-divider {
+  display: flex !important;
+  align-items: center !important;
+  width: 100% !important;
+  max-width: 360px !important;
+  margin: 16px 0 !important;
+  box-sizing: border-box !important;
+}
+
+.carbon-social-divider-line {
+  flex: 1 !important;
+  border-top: 1px solid #e2e7ee !important;
+}
+
+.carbon-social-divider-text {
+  padding: 0 12px !important;
+  font-size: 12px !important;
+  color: #929caa !important;
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  user-select: none !important;
+}
+
+.carbon-social-grid {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 12px !important;
+  width: 100% !important;
+  max-width: 360px !important;
+  box-sizing: border-box !important;
+}
+
+.carbon-social-btn {
+  height: 40px !important;
+  padding: 0 12px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  border-radius: 6px !important;
+  border: 1px solid #d2d8df !important;
+  background-color: #ffffff !important;
+  color: #1e252f !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  text-decoration: none !important;
+  transition: background-color 0.15s, border-color 0.15s !important;
+  cursor: pointer !important;
+  box-sizing: border-box !important;
+  user-select: none !important;
+}
+
+.carbon-social-btn:hover {
+  background-color: #f0f3f9 !important;
+  border-color: #b6bec8 !important;
+}
+
+.carbon-social-btn:active {
+  background-color: #e2e7ee !important;
+}
+
+/* Links & Footer */
+.carbon-forgot-link {
+  margin-top: 24px !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  color: #164c9a !important;
+  text-decoration: none !important;
+  display: block !important;
+  text-align: center !important;
+}
+
+.carbon-forgot-link:hover {
+  text-decoration: underline !important;
+}
+
+.carbon-register-row {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 4px !important;
+  margin-top: 32px !important;
+  font-size: 14px !important;
+}
+
+.carbon-register-label {
+  color: #647081 !important;
+}
+
+.carbon-register-link {
+  color: #164c9a !important;
+  font-weight: 500 !important;
+  text-decoration: none !important;
+}
+
+.carbon-register-link:hover {
+  text-decoration: underline !important;
+}
+
+/* Password Checklist & Terms */
+.carbon-checklist-item {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  margin-top: 6px !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  line-height: 1.4 !important;
+  color: #647081 !important;
+  user-select: none !important;
+}
+
+.carbon-checklist-item.valid {
+  color: #12b76a !important;
+}
+
+.carbon-terms-container {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  margin-top: 32px !important;
+  font-size: 14px !important;
+  text-align: center !important;
+  line-height: 1.5 !important;
+}
+
+.carbon-terms-links {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 4px !important;
+  flex-wrap: wrap !important;
+}
+
+.carbon-copyright {
+  margin-bottom: 32px !important;
+  margin-top: 16px !important;
+  font-size: 14px !important;
+  color: #647081 !important;
+  text-align: center !important;
+  user-select: none !important;
+}

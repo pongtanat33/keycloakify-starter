@@ -1,76 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
+@import "./theme.css";
+
 
 :root {
-  --dp-color-ground: #fcfcfd;
-  --dp-color-ink: #16191f;
-  --dp-color-ink-secondary: #454c58;
-  --dp-color-ground-muted: #f3f4f6;
-  --dp-color-rule: #dde0e6;
-  --dp-color-accent: #074ce0;
-  --dp-color-field: #16191f;
-  --dp-color-on-field: #fcfcfd;
-  --dp-color-on-field-secondary: #d0d4dd;
-  --dp-color-panel: #ffffff;
-  --dp-color-on-accent: #ffffff;
+  /* --- Background & Foreground --- */
+  --background: #ffffff;
+  --foreground: #111827;
 
-  --background: var(--dp-color-ground);
-  --foreground: var(--dp-color-ink);
-  --muted: #f3f4f6;
-  --muted-foreground: #64748b;
-  --border: #dde0e6;
-  --ring: #074ce0;
-}
+  /* --- Brand (Blue — Figma Primary scale) --- */
+  --color-brand-25:  #F0F6FF;
+  --color-brand-50:  #E0EDFF;
+  --color-brand-100: #C2DAFF;
+  --color-brand-200: #90B6F0;
+  --color-brand-300: #6599E7;
+  --color-brand-400: #4B81D8;
+  --color-brand-500: #2162C5;
+  --color-brand-600: #164C9A;
+  --color-brand-700: #0D3575;
+  --color-brand-800: #032146;
+  --color-brand-900: #01152B;
+  --color-brand-950: #000D1A;
 
-@theme inline {
-  --font-sans: "IBM Plex Sans Thai", "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-display: "IBM Plex Sans Thai", "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  /* --- Gray --- */
+  --color-gray-50:  #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
 
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-border: var(--border);
-  --color-ring: var(--ring);
+  /* --- Success --- */
+  --color-success-50:  #f0fdf4;
+  --color-success-100: #dcfce7;
+  --color-success-600: #16a34a;
+  --color-success-700: #15803d;
 
-  --color-ground: var(--dp-color-ground);
-  --color-ground-muted: var(--dp-color-ground-muted);
-  --color-panel: var(--dp-color-panel);
-  --color-ink: var(--dp-color-ink);
-  --color-ink-secondary: var(--dp-color-ink-secondary);
-  --color-accent: var(--dp-color-accent);
-  --color-on-accent: var(--dp-color-on-accent);
-  --color-field: var(--dp-color-field);
-  --color-on-field: var(--dp-color-on-field);
-  --color-on-field-secondary: var(--dp-color-on-field-secondary);
-  --color-rule: var(--dp-color-rule);
+  /* --- Warning (amber) --- */
+  --color-warning-50:  #fffbeb;
+  --color-warning-100: #fef3c7;
+  --color-warning-600: #d97706;
+  --color-warning-700: #b45309;
+
+  /* --- Error (red) --- */
+  --color-error-50:  #fef2f2;
+  --color-error-100: #fee2e2;
+  --color-error-600: #dc2626;
+  --color-error-700: #b91c1c;
+
+  /* --- Info (blue) --- */
+  --color-info-50:  #eff6ff;
+  --color-info-100: #dbeafe;
+  --color-info-600: #2563eb;
+  --color-info-700: #1d4ed8;
+
+  /* --- Typography --- */
+  --font-sans: var(--font-ibm), 'IBM Plex Sans Thai', system-ui, sans-serif;
+  --font-size-xs:         0.75rem;    /* 12px */
+  --font-size-sm:         0.875rem;   /* 14px */
+  --font-size-base:       1rem;       /* 16px */
+  --font-size-lg:         1.125rem;   /* 18px */
+  --font-size-xl:         1.25rem;    /* 20px */
+  --font-size-2xl:        1.5rem;     /* 24px */
+  --font-size-3xl:        1.875rem;   /* 30px */
+  --font-size-display-lg: 3rem;       /* 48px — CFP result */
+
+  /* --- Border Radius --- */
+  --radius-sm:   4px;
+  --radius-md:   8px;
+  --radius-lg:   12px;
+  --radius-xl:   16px;
+  --radius-full: 9999px;
+
+  /* --- Shadows --- */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+  /* --- Canvas --- */
+  --canvas-bg: #f8fafc;
+  --canvas-dot-color: #cbd5e1;
+  --canvas-grid-size: 20px;
 }
 
 body {
-  background-color: var(--dp-color-ground);
-  color: var(--dp-color-ink);
-  font-family: "IBM Plex Sans Thai", "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  font-size: 16px;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-sans);
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: "IBM Plex Sans Thai", "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  letter-spacing: -0.015em;
-  font-weight: 700;
-  line-height: 1.2;
+/* React Flow canvas background */
+.react-flow__background {
+  background-color: var(--canvas-bg);
 }
 
-/* Reduced motion preference */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  ::before,
-  ::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-    transform: none !important;
+/* ── Page & component animation keyframes ─────────────────────────────── */
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slide-up-fade {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide-down-fade {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide-right-fade {
+  from { opacity: 0; transform: translateX(-10px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.97); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* ── Animation utility classes ────────────────────────────────────────── */
+
+@layer utilities {
+  .animate-page-in {
+    animation: slide-up-fade 0.25s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  .animate-fade-in {
+    animation: fade-in 0.2s ease both;
+  }
+  .animate-scale-in {
+    animation: scale-in 0.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  .animate-slide-down {
+    animation: slide-down-fade 0.18s ease both;
+  }
+  .animate-slide-right {
+    animation: slide-right-fade 0.2s ease both;
+  }
+
+  /* Staggered children — apply to a list wrapper, children get delay via index */
+  .stagger-children > * {
+    animation: slide-up-fade 0.22s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  .stagger-children > *:nth-child(1) { animation-delay: 0ms; }
+  .stagger-children > *:nth-child(2) { animation-delay: 40ms; }
+  .stagger-children > *:nth-child(3) { animation-delay: 80ms; }
+  .stagger-children > *:nth-child(4) { animation-delay: 120ms; }
+  .stagger-children > *:nth-child(5) { animation-delay: 160ms; }
+  .stagger-children > *:nth-child(6) { animation-delay: 200ms; }
+  .stagger-children > *:nth-child(n+7) { animation-delay: 240ms; }
+
+  /* Respect prefers-reduced-motion */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-page-in,
+    .animate-fade-in,
+    .animate-scale-in,
+    .animate-slide-down,
+    .animate-slide-right,
+    .stagger-children > * {
+      animation: none;
+    }
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+  /* Display size for CFP result */
+  .text-display-lg {
+    font-size: var(--font-size-display-lg);
+    line-height: 1.1;
+    font-weight: 700;
+    letter-spacing: -0.02em;
   }
 }
