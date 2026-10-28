@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+:root {
+  --dp-color-ground: #fcfcfd;
+  --dp-color-ink: #16191f;
+  --dp-color-ink-secondary: #454c58;
+  --dp-color-ground-muted: #f3f4f6;
+  --dp-color-rule: #dde0e6;
+  --dp-color-accent: #074ce0;
+  --dp-color-field: #16191f;
+  --dp-color-on-field: #fcfcfd;
+  --dp-color-on-field-secondary: #d0d4dd;
+  --dp-color-panel: #ffffff;
+  --dp-color-on-accent: #ffffff;
+
+  --background: var(--dp-color-ground);
+  --foreground: var(--dp-color-ink);
+  --muted: #f3f4f6;
+  --muted-foreground: #64748b;
+  --border: #dde0e6;
+  --ring: #074ce0;
+}
+
+@theme inline {
+  --font-sans: "IBM Plex Sans Thai", "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-display: "IBM Plex Sans Thai", "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+
+  --color-ground: var(--dp-color-ground);
+  --color-ground-muted: var(--dp-color-ground-muted);
+  --color-panel: var(--dp-color-panel);
+  --color-ink: var(--dp-color-ink);
+  --color-ink-secondary: var(--dp-color-ink-secondary);
+  --color-accent: var(--dp-color-accent);
+  --color-on-accent: var(--dp-color-on-accent);
+  --color-field: var(--dp-color-field);
+  --color-on-field: var(--dp-color-on-field);
+  --color-on-field-secondary: var(--dp-color-on-field-secondary);
+  --color-rule: var(--dp-color-rule);
+}
+
+body {
+  background-color: var(--dp-color-ground);
+  color: var(--dp-color-ink);
+  font-family: "IBM Plex Sans Thai", "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "IBM Plex Sans Thai", "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  letter-spacing: -0.015em;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+    transform: none !important;
+  }
+}
