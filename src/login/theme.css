@@ -422,3 +422,49 @@ a {
   text-align: center !important;
   user-select: none !important;
 }
+
+/* ==========================================================================
+   User Profile Form Fields (Update Account Information / IDP Review Profile)
+   ========================================================================== */
+
+.carbon-form-group {
+  margin-top: 16px !important;
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  box-sizing: border-box !important;
+}
+
+.carbon-form-group label {
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  color: #050c17 !important;
+  display: block !important;
+  line-height: 1.4 !important;
+  margin-bottom: 6px !important;
+}
+
+.carbon-form-group input:not([type="checkbox"]):not([type="radio"]) {
+  width: 100% !important;
+  height: 40px !important;
+  padding: 0 16px !important;
+  border-radius: 6px !important;
+  border: 1px solid #d2d8df !important;
+  font-size: 16px !important;
+  color: #050c17 !important;
+  background-color: transparent !important;
+  outline: none !important;
+  box-sizing: border-box !important;
+  transition: border-color 0.15s, box-shadow 0.15s !important;
+}
+
+.carbon-form-group input:not([type="checkbox"]):not([type="radio"]):focus {
+  border-color: #2162c5 !important;
+  box-shadow: 0 0 0 1px #2162c5 !important;
+}
+
+.carbon-form-group input[aria-invalid="true"] {
+  border-color: #f04438 !important;
+  box-shadow: 0 0 0 1px #f04438 !important;
+}
+
