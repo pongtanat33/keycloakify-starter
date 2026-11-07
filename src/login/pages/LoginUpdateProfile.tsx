@@ -6,7 +6,7 @@ import type { JSX } from "keycloakify/tools/JSX";
 import { kcSanitize } from "keycloakify/lib/kcSanitize";
 import type { KcContext } from "../KcContext";
 import type { I18n } from "../i18n";
-import bufferboxLogo from "../assets/bufferbox-logo.svg";
+import iconPng from "../assets/icon.png";
 
 type LoginUpdateProfileProps = PageProps<Extract<KcContext, { pageId: "login-update-profile.ftl" }>, I18n> & {
     UserProfileFormFields?: LazyOrNot<(props: UserProfileFormFieldsProps) => JSX.Element>;
@@ -47,18 +47,24 @@ export default function LoginUpdateProfile(props: LoginUpdateProfileProps) {
             <div style={{ display: "flex", flexDirection: "column", alignItems: "center", width: "100%" }}>
                 {/* BufferBox Logo */}
                 <img
-                    src={bufferboxLogo}
-                    alt="logo"
-                    width={90}
-                    height={90}
-                    className="carbon-logo"
+                    src={iconPng}
+                    alt="AI SaaS Icon"
+                    // width={120}
+                    // height={120}
+                    style={{
+                        width: "100px",
+                        height: "100px",
+                        borderRadius: "18px",
+                        //boxShadow: "0 10px 25px -4px rgba(37, 99, 235, 0.35)",
+                        userSelect: "none",
+                    }}
                 />
 
                 {/* Title & Subtitle */}
-                <h1 className="carbon-title">
+                <h1 className="title">
                     Update Account Information
                 </h1>
-                <p className="carbon-subtitle">
+                <p className="subtitle">
                     Please enter your first and last name to continue
                 </p>
                 {userEmail && (
@@ -73,7 +79,7 @@ export default function LoginUpdateProfile(props: LoginUpdateProfileProps) {
                     action={url.loginAction}
                     method="post"
                     onSubmit={() => setIsSubmitting(true)}
-                    className="carbon-form"
+                    className="form"
                     style={{ marginTop: "16px" }}
                 >
                     {/* Preserve other attributes (e.g. email, username) as hidden inputs */}
@@ -99,7 +105,7 @@ export default function LoginUpdateProfile(props: LoginUpdateProfileProps) {
                     {/* First Name Field */}
                     <label
                         htmlFor="firstName"
-                        className="carbon-label"
+                        className="label"
                         style={{ marginTop: "16px" }}
                     >
                         First name
@@ -113,13 +119,13 @@ export default function LoginUpdateProfile(props: LoginUpdateProfileProps) {
                         required
                         value={firstName}
                         onChange={e => setFirstName(e.target.value)}
-                        className={`carbon-input ${hasFirstNameError ? "carbon-input-error" : ""}`}
+                        className={`input ${hasFirstNameError ? "input-error" : ""}`}
                         placeholder="Enter your first name"
                     />
                     {hasFirstNameError && (
                         <p
                             id="input-error-firstname"
-                            className="carbon-error-text"
+                            className="error-text"
                             dangerouslySetInnerHTML={{
                                 __html: kcSanitize(firstNameErrorMsg)
                             }}
@@ -129,7 +135,7 @@ export default function LoginUpdateProfile(props: LoginUpdateProfileProps) {
                     {/* Last Name Field */}
                     <label
                         htmlFor="lastName"
-                        className="carbon-label"
+                        className="label"
                         style={{ marginTop: "16px" }}
                     >
                         Last name
@@ -142,13 +148,13 @@ export default function LoginUpdateProfile(props: LoginUpdateProfileProps) {
                         required
                         value={lastName}
                         onChange={e => setLastName(e.target.value)}
-                        className={`carbon-input ${hasLastNameError ? "carbon-input-error" : ""}`}
+                        className={`input ${hasLastNameError ? "input-error" : ""}`}
                         placeholder="Enter your last name"
                     />
                     {hasLastNameError && (
                         <p
                             id="input-error-lastname"
-                            className="carbon-error-text"
+                            className="error-text"
                             dangerouslySetInnerHTML={{
                                 __html: kcSanitize(lastNameErrorMsg)
                             }}
@@ -161,7 +167,7 @@ export default function LoginUpdateProfile(props: LoginUpdateProfileProps) {
                         id="kc-submit"
                         type="submit"
                         disabled={!isFormValid || isSubmitting}
-                        className="carbon-submit-btn"
+                        className="submit-btn"
                         style={{ marginTop: "24px" }}
                     >
                         {isSubmitting ? "Saving..." : msgStr("doSubmit")}

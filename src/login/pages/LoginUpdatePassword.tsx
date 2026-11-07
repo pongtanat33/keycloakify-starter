@@ -83,12 +83,12 @@ export default function LoginUpdatePassword(
                 />
 
                 {/* Title */}
-                <h1 className="carbon-title" style={{ marginTop: "24px" }}>
+                <h1 className="title" style={{ marginTop: "24px" }}>
                     Set New Password
                 </h1>
 
                 {/* Subtitle */}
-                <p className="carbon-subtitle" style={{ marginTop: "12px", textAlign: "center", maxWidth: "360px" }}>
+                <p className="subtitle" style={{ marginTop: "12px", textAlign: "center", maxWidth: "360px" }}>
                     Your new password must be different from previously used passwords.
                 </p>
 
@@ -99,12 +99,12 @@ export default function LoginUpdatePassword(
                     method="post"
                     onSubmit={handleSubmit}
                     noValidate
-                    className="carbon-form"
+                    className="form"
                 >
                     {/* New Password */}
                     <label
                         htmlFor="password-new"
-                        className="carbon-label"
+                        className="label"
                         style={{ marginTop: "24px" }}
                     >
                         New Password
@@ -119,7 +119,7 @@ export default function LoginUpdatePassword(
                             autoComplete="new-password"
                             value={password}
                             onChange={e => setPassword(e.target.value)}
-                            className={`carbon-input ${hasPasswordError ? "carbon-input-error" : ""}`}
+                            className={`input ${hasPasswordError ? "input-error" : ""}`}
                             style={{ paddingRight: "44px" }}
                         />
                         <button
@@ -147,7 +147,7 @@ export default function LoginUpdatePassword(
                     {hasPasswordError && (
                         <p
                             id="input-error-password"
-                            className="carbon-error-text"
+                            className="error-text"
                             dangerouslySetInnerHTML={{
                                 __html: kcSanitize(passwordErrorMessage)
                             }}
@@ -221,7 +221,7 @@ export default function LoginUpdatePassword(
                     {/* Confirm Password */}
                     <label
                         htmlFor="password-confirm"
-                        className="carbon-label"
+                        className="label"
                         style={{ marginTop: "20px" }}
                     >
                         Confirm new password
@@ -235,7 +235,7 @@ export default function LoginUpdatePassword(
                             autoComplete="new-password"
                             value={confirmPassword}
                             onChange={e => setConfirmPassword(e.target.value)}
-                            className={`carbon-input ${hasConfirmPasswordError ? "carbon-input-error" : ""}`}
+                            className={`input ${hasConfirmPasswordError ? "input-error" : ""}`}
                             style={{ paddingRight: "44px" }}
                         />
                         <button
@@ -263,7 +263,7 @@ export default function LoginUpdatePassword(
                     {hasConfirmPasswordError && (
                         <p
                             id="input-error-password-confirm"
-                            className="carbon-error-text"
+                            className="error-text"
                             dangerouslySetInnerHTML={{
                                 __html: kcSanitize(confirmPasswordErrorMessage)
                             }}
@@ -276,7 +276,7 @@ export default function LoginUpdatePassword(
                         id="kc-submit"
                         type="submit"
                         disabled={isSubmitting}
-                        className="carbon-submit-btn"
+                        className="submit-btn"
                         style={{ marginTop: "24px" }}
                     >
                         {isSubmitting ? "Setting New Password..." : "Set New Password"}

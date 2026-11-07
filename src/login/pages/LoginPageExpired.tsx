@@ -30,12 +30,12 @@ export default function LoginPageExpired(
                 />
 
                 {/* Title */}
-                <h1 className="carbon-title" style={{ marginTop: "24px" }}>
+                <h1 className="title" style={{ marginTop: "24px" }}>
                     Page expired
                 </h1>
 
                 {/* Subtitle */}
-                <p className="carbon-subtitle" style={{ marginTop: "12px", textAlign: "center", maxWidth: "360px" }}>
+                <p className="subtitle" style={{ marginTop: "12px", textAlign: "center", maxWidth: "360px" }}>
                     Your login attempt timed out. Please restart the login process to continue.
                 </p>
 
@@ -43,7 +43,7 @@ export default function LoginPageExpired(
                 <a
                     tabIndex={1}
                     href={url.loginRestartFlowUrl}
-                    className="carbon-submit-btn"
+                    className="submit-btn"
                     style={{
                         marginTop: "28px",
                         width: "100%",

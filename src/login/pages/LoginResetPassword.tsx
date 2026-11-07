@@ -41,12 +41,12 @@ export default function LoginResetPassword(
                 />
 
                 {/* Title */}
-                <h1 className="carbon-title" style={{ marginTop: "24px" }}>
+                <h1 className="title" style={{ marginTop: "24px" }}>
                     Forgot password?
                 </h1>
 
                 {/* Subtitle */}
-                <p className="carbon-subtitle" style={{ marginTop: "12px", textAlign: "center", maxWidth: "360px" }}>
+                <p className="subtitle" style={{ marginTop: "12px", textAlign: "center", maxWidth: "360px" }}>
                     No worries, Enter your email and we'll send an email with instructions to reset your password.
                 </p>
 
@@ -57,19 +57,19 @@ export default function LoginResetPassword(
                     method="post"
                     onSubmit={handleSubmit}
                     noValidate
-                    className="carbon-form"
+                    className="form"
                 >
                     {/* Email / Username Field */}
                     <label
                         htmlFor="username"
-                        className="carbon-label"
+                        className="label"
                         style={{ marginTop: "32px" }}
                     >
                         {!realm.loginWithEmailAllowed
                             ? "Username"
                             : !realm.registrationEmailAsUsername
-                              ? "Username or email"
-                              : "Email"}
+                                ? "Username or email"
+                                : "Email"}
                     </label>
                     <input
                         tabIndex={1}
@@ -79,12 +79,12 @@ export default function LoginResetPassword(
                         autoFocus
                         defaultValue={auth.attemptedUsername ?? ""}
                         autoComplete="username"
-                        className={`carbon-input ${hasUsernameError ? "carbon-input-error" : ""}`}
+                        className={`input ${hasUsernameError ? "input-error" : ""}`}
                     />
                     {hasUsernameError && (
                         <p
                             id="input-error-username"
-                            className="carbon-error-text"
+                            className="error-text"
                             dangerouslySetInnerHTML={{
                                 __html: kcSanitize(usernameErrorMessage)
                             }}
@@ -98,7 +98,7 @@ export default function LoginResetPassword(
                         name="submit"
                         type="submit"
                         disabled={isSubmitting}
-                        className="carbon-submit-btn"
+                        className="submit-btn"
                         style={{ marginTop: "24px" }}
                     >
                         {isSubmitting ? "Sending..." : "Send Instructions"}

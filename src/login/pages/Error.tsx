@@ -30,7 +30,7 @@ export default function Error(props: PageProps<Extract<KcContext, { pageId: "err
                 />
 
                 {/* Title */}
-                <h1 className="carbon-title" style={{ marginTop: "24px" }}>
+                <h1 className="title" style={{ marginTop: "24px" }}>
                     {msg("errorTitle")}
                 </h1>
 
@@ -54,7 +54,7 @@ export default function Error(props: PageProps<Extract<KcContext, { pageId: "err
                 <a
                     tabIndex={1}
                     href={url.loginRestartFlowUrl || url.loginUrl}
-                    className="carbon-submit-btn"
+                    className="submit-btn"
                     style={{
                         marginTop: "28px",
                         width: "100%",

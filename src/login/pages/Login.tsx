@@ -4,7 +4,7 @@ import { kcSanitize } from "keycloakify/lib/kcSanitize";
 import { Eye, EyeOff } from "lucide-react";
 import type { KcContext } from "../KcContext";
 import type { I18n } from "../i18n";
-import bufferboxLogo from "../assets/bufferbox-logo.svg";
+import iconPng from "../assets/icon.png";
 
 export default function Login(props: PageProps<Extract<KcContext, { pageId: "login.ftl" }>, I18n>) {
     const { kcContext, i18n, Template, classes, doUseDefaultCss } = props;
@@ -27,19 +27,19 @@ export default function Login(props: PageProps<Extract<KcContext, { pageId: "log
         social?.providers && social.providers.length > 0
             ? social.providers
             : [
-                  {
-                      loginUrl: "#google-login",
-                      alias: "google",
-                      providerId: "google",
-                      displayName: "Google"
-                  },
-                  {
-                      loginUrl: "#microsoft-login",
-                      alias: "microsoft",
-                      providerId: "microsoft",
-                      displayName: "Microsoft"
-                  }
-              ];
+                {
+                    loginUrl: "#google-login",
+                    alias: "google",
+                    providerId: "google",
+                    displayName: "Google"
+                },
+                {
+                    loginUrl: "#microsoft-login",
+                    alias: "microsoft",
+                    providerId: "microsoft",
+                    displayName: "Microsoft"
+                }
+            ];
 
     return (
         <Template
@@ -51,20 +51,26 @@ export default function Login(props: PageProps<Extract<KcContext, { pageId: "log
             displayMessage={!messagesPerField.existsError("username", "password")}
         >
             <div style={{ display: "flex", flexDirection: "column", alignItems: "center", width: "100%" }}>
-                {/* BufferBox Logo */}
+                {/* AI SaaS App Icon */}
                 <img
-                    src={bufferboxLogo}
-                    alt="logo"
-                    width={90}
-                    height={90}
-                    className="carbon-logo"
+                    src={iconPng}
+                    alt="AI SaaS Icon"
+                    width={120}
+                    height={120}
+                    style={{
+                        width: "100px",
+                        height: "100px",
+                        borderRadius: "18px",
+                       // boxShadow: "0 10px 25px -4px rgba(37, 99, 235, 0.35)",
+                        userSelect: "none",
+                    }}
                 />
 
                 {/* Title & Subtitle */}
-                <h1 className="carbon-title">
+                <h1 className="title">
                     Welcome back!
                 </h1>
-                <p className="carbon-subtitle">
+                <p className="subtitle">
                     Log in with your email address
                 </p>
 
@@ -76,14 +82,14 @@ export default function Login(props: PageProps<Extract<KcContext, { pageId: "log
                         method="post"
                         onSubmit={handleSubmit}
                         noValidate
-                        className="carbon-form"
+                        className="form"
                     >
                         {/* Email / Username Field */}
                         {!usernameHidden && (
                             <>
                                 <label
                                     htmlFor="username"
-                                    className="carbon-label"
+                                    className="label"
                                     style={{ marginTop: "32px" }}
                                 >
                                     Email
@@ -96,12 +102,12 @@ export default function Login(props: PageProps<Extract<KcContext, { pageId: "log
                                     autoComplete="email"
                                     defaultValue={login.username ?? ""}
                                     autoFocus
-                                    className={`carbon-input ${hasUsernameError ? "carbon-input-error" : ""}`}
+                                    className={`input ${hasUsernameError ? "input-error" : ""}`}
                                 />
                                 {hasUsernameError && (
                                     <p
                                         id="input-error-username"
-                                        className="carbon-error-text"
+                                        className="error-text"
                                         dangerouslySetInnerHTML={{
                                             __html: kcSanitize(usernameErrorMessage)
                                         }}
@@ -113,25 +119,25 @@ export default function Login(props: PageProps<Extract<KcContext, { pageId: "log
                         {/* Password Field */}
                         <label
                             htmlFor="password"
-                            className="carbon-label"
+                            className="label"
                             style={{ marginTop: "20px" }}
                         >
                             Password
                         </label>
-                        <div className="carbon-password-wrapper">
+                        <div className="password-wrapper">
                             <input
                                 tabIndex={2}
                                 id="password"
                                 name="password"
                                 type={showPassword ? "text" : "password"}
                                 autoComplete="current-password"
-                                className={`carbon-password-input ${hasPasswordError ? "carbon-input-error" : ""}`}
+                                className={`password-input ${hasPasswordError ? "input-error" : ""}`}
                             />
                             <button
                                 type="button"
                                 tabIndex={-1}
                                 onClick={() => setShowPassword(prev => !prev)}
-                                className="carbon-password-toggle"
+                                className="password-toggle"
                                 aria-label={showPassword ? "Hide password" : "Show password"}
                             >
                                 {showPassword ? (
@@ -144,7 +150,7 @@ export default function Login(props: PageProps<Extract<KcContext, { pageId: "log
                         {hasPasswordError && (
                             <p
                                 id="input-error-password"
-                                className="carbon-error-text"
+                                className="error-text"
                                 dangerouslySetInnerHTML={{
                                     __html: kcSanitize(passwordErrorMessage)
                                 }}
@@ -164,7 +170,7 @@ export default function Login(props: PageProps<Extract<KcContext, { pageId: "log
                             name="login"
                             type="submit"
                             disabled={isSubmitting}
-                            className="carbon-submit-btn"
+                            className="submit-btn"
                         >
                             {isSubmitting ? "Logging in..." : "Log In"}
                         </button>
@@ -174,22 +180,22 @@ export default function Login(props: PageProps<Extract<KcContext, { pageId: "log
                 {/* Two Social Providers (Google & Microsoft) */}
                 <div style={{ display: "flex", flexDirection: "column", width: "100%", maxWidth: "360px" }}>
                     {/* Divider */}
-                    <div className="carbon-social-divider">
-                        <div className="carbon-social-divider-line" />
-                        <span className="carbon-social-divider-text">
+                    <div className="social-divider">
+                        <div className="social-divider-line" />
+                        <span className="social-divider-text">
                             or
                         </span>
-                        <div className="carbon-social-divider-line" />
+                        <div className="social-divider-line" />
                     </div>
 
                     {/* 2-Column Grid for the Two Social Providers */}
-                    <div className="carbon-social-grid">
+                    <div className="social-grid">
                         {effectiveProviders.slice(0, 2).map(provider => (
                             <a
                                 key={provider.alias}
                                 id={`social-${provider.alias}`}
                                 href={provider.loginUrl}
-                                className="carbon-social-btn"
+                                className="social-btn"
                             >
                                 <SocialIcon providerId={provider.providerId} />
                                 <span
@@ -208,7 +214,7 @@ export default function Login(props: PageProps<Extract<KcContext, { pageId: "log
                     <a
                         tabIndex={4}
                         href={url.loginResetCredentialsUrl}
-                        className="carbon-forgot-link"
+                        className="forgot-link"
                     >
                         Forgot your password?
                     </a>
@@ -216,12 +222,12 @@ export default function Login(props: PageProps<Extract<KcContext, { pageId: "log
 
                 {/* Don't have an account? Register Link */}
                 {realm.registrationAllowed && !registrationDisabled && (
-                    <div className="carbon-register-row">
-                        <span className="carbon-register-label"> Don&apos;t have an account?</span>
+                    <div className="register-row">
+                        <span className="register-label"> Don&apos;t have an account?</span>
                         <a
                             tabIndex={5}
                             href={url.registrationUrl}
-                            className="carbon-register-link"
+                            className="register-link"
                         >
                             Register
                         </a>

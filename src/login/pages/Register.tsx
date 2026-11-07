@@ -7,7 +7,7 @@ import { kcSanitize } from "keycloakify/lib/kcSanitize";
 import { Eye, EyeOff, CheckCircle2, Circle } from "lucide-react";
 import type { KcContext } from "../KcContext";
 import type { I18n } from "../i18n";
-import bufferboxLogo from "../assets/bufferbox-logo.svg";
+import iconPng from "../assets/icon.png";
 
 export type RegisterProps = PageProps<Extract<KcContext, { pageId: "register.ftl" }>, I18n> & {
     UserProfileFormFields?: LazyOrNot<(props: UserProfileFormFieldsProps) => JSX.Element>;
@@ -70,18 +70,24 @@ export default function Register(props: RegisterProps) {
             <div style={{ display: "flex", flexDirection: "column", alignItems: "center", width: "100%" }}>
                 {/* BufferBox Logo */}
                 <img
-                    src={bufferboxLogo}
-                    alt="logo"
-                    width={90}
-                    height={90}
-                    className="carbon-logo"
+                    src={iconPng}
+                    alt="AI SaaS Icon"
+                    width={120}
+                    height={120}
+                    style={{
+                        width: "100px",
+                        height: "100px",
+                        borderRadius: "18px",
+                       // boxShadow: "0 10px 25px -4px rgba(37, 99, 235, 0.35)",
+                        userSelect: "none",
+                    }}
                 />
 
                 {/* Title & Subtitle */}
-                <h1 className="carbon-title">
+                <h1 className="title">
                     Register
                 </h1>
-                <p className="carbon-subtitle">
+                <p className="subtitle">
                     Register with your email address
                 </p>
 
@@ -92,7 +98,7 @@ export default function Register(props: RegisterProps) {
                     method="post"
                     onSubmit={handleSubmit}
                     noValidate
-                    className="carbon-form"
+                    className="form"
                 >
                     {/* Hidden Username (auto-matches email for Keycloak) */}
                     <input type="hidden" name="username" value={email} />
@@ -103,7 +109,7 @@ export default function Register(props: RegisterProps) {
                     {/* Email Field */}
                     <label
                         htmlFor="email"
-                        className="carbon-label"
+                        className="label"
                         style={{ marginTop: "32px" }}
                     >
                         Email
@@ -117,12 +123,12 @@ export default function Register(props: RegisterProps) {
                         value={email}
                         onChange={e => setEmail(e.target.value)}
                         autoFocus
-                        className={`carbon-input ${hasEmailError || hasUsernameError ? "carbon-input-error" : ""}`}
+                        className={`input ${hasEmailError || hasUsernameError ? "input-error" : ""}`}
                     />
                     {(hasEmailError || hasUsernameError) && (
                         <p
                             id="input-error-email"
-                            className="carbon-error-text"
+                            className="error-text"
                             dangerouslySetInnerHTML={{
                                 __html: kcSanitize(emailErrorMsg)
                             }}
@@ -132,12 +138,12 @@ export default function Register(props: RegisterProps) {
                     {/* Password Field */}
                     <label
                         htmlFor="password"
-                        className="carbon-label"
+                        className="label"
                         style={{ marginTop: "20px" }}
                     >
                         Password
                     </label>
-                    <div className="carbon-password-wrapper">
+                    <div className="password-wrapper">
                         <input
                             tabIndex={2}
                             id="password"
@@ -146,13 +152,13 @@ export default function Register(props: RegisterProps) {
                             autoComplete="new-password"
                             value={password}
                             onChange={e => setPassword(e.target.value)}
-                            className={`carbon-password-input ${hasPasswordError ? "carbon-input-error" : ""}`}
+                            className={`password-input ${hasPasswordError ? "input-error" : ""}`}
                         />
                         <button
                             type="button"
                             tabIndex={-1}
                             onClick={() => setShowPassword(prev => !prev)}
-                            className="carbon-password-toggle"
+                            className="password-toggle"
                             aria-label={showPassword ? "Hide password" : "Show password"}
                         >
                             {showPassword ? (
@@ -165,7 +171,7 @@ export default function Register(props: RegisterProps) {
 
                     {/* Live Password Rules Checklist */}
                     <div style={{ marginTop: "8px", display: "flex", flexDirection: "column" }}>
-                        <div className={`carbon-checklist-item ${isAtLeast8Chars ? "valid" : ""}`}>
+                        <div className={`checklist-item ${isAtLeast8Chars ? "valid" : ""}`}>
                             {isAtLeast8Chars ? (
                                 <CheckCircle2 style={{ width: "18px", height: "18px", color: "#12B76A", flexShrink: 0 }} />
                             ) : (
@@ -173,7 +179,7 @@ export default function Register(props: RegisterProps) {
                             )}
                             <span>Must be at least 8 characters</span>
                         </div>
-                        <div className={`carbon-checklist-item ${hasLowercase ? "valid" : ""}`}>
+                        <div className={`checklist-item ${hasLowercase ? "valid" : ""}`}>
                             {hasLowercase ? (
                                 <CheckCircle2 style={{ width: "18px", height: "18px", color: "#12B76A", flexShrink: 0 }} />
                             ) : (
@@ -181,7 +187,7 @@ export default function Register(props: RegisterProps) {
                             )}
                             <span>Minimum one lowercase letter (a-z)</span>
                         </div>
-                        <div className={`carbon-checklist-item ${hasUppercase ? "valid" : ""}`}>
+                        <div className={`checklist-item ${hasUppercase ? "valid" : ""}`}>
                             {hasUppercase ? (
                                 <CheckCircle2 style={{ width: "18px", height: "18px", color: "#12B76A", flexShrink: 0 }} />
                             ) : (
@@ -189,7 +195,7 @@ export default function Register(props: RegisterProps) {
                             )}
                             <span>Minimum one uppercase letter (A-Z)</span>
                         </div>
-                        <div className={`carbon-checklist-item ${hasNumber ? "valid" : ""}`}>
+                        <div className={`checklist-item ${hasNumber ? "valid" : ""}`}>
                             {hasNumber ? (
                                 <CheckCircle2 style={{ width: "18px", height: "18px", color: "#12B76A", flexShrink: 0 }} />
                             ) : (
@@ -197,7 +203,7 @@ export default function Register(props: RegisterProps) {
                             )}
                             <span>Minimum one number (0-9)</span>
                         </div>
-                        <div className={`carbon-checklist-item ${hasSpecial ? "valid" : ""}`}>
+                        <div className={`checklist-item ${hasSpecial ? "valid" : ""}`}>
                             {hasSpecial ? (
                                 <CheckCircle2 style={{ width: "18px", height: "18px", color: "#12B76A", flexShrink: 0 }} />
                             ) : (
@@ -210,7 +216,7 @@ export default function Register(props: RegisterProps) {
                     {hasPasswordError && (
                         <p
                             id="input-error-password"
-                            className="carbon-error-text"
+                            className="error-text"
                             dangerouslySetInnerHTML={{
                                 __html: kcSanitize(passwordErrorMsg)
                             }}
@@ -220,7 +226,7 @@ export default function Register(props: RegisterProps) {
                     {/* First Name Field */}
                     <label
                         htmlFor="firstName"
-                        className="carbon-label"
+                        className="label"
                         style={{ marginTop: "20px" }}
                     >
                         First Name
@@ -233,12 +239,12 @@ export default function Register(props: RegisterProps) {
                         autoComplete="given-name"
                         value={firstName}
                         onChange={e => setFirstName(e.target.value)}
-                        className={`carbon-input ${hasFirstNameError ? "carbon-input-error" : ""}`}
+                        className={`input ${hasFirstNameError ? "input-error" : ""}`}
                     />
                     {hasFirstNameError && (
                         <p
                             id="input-error-firstname"
-                            className="carbon-error-text"
+                            className="error-text"
                             dangerouslySetInnerHTML={{
                                 __html: kcSanitize(firstNameErrorMsg)
                             }}
@@ -248,7 +254,7 @@ export default function Register(props: RegisterProps) {
                     {/* Last Name Field */}
                     <label
                         htmlFor="lastName"
-                        className="carbon-label"
+                        className="label"
                         style={{ marginTop: "20px" }}
                     >
                         Last Name
@@ -261,12 +267,12 @@ export default function Register(props: RegisterProps) {
                         autoComplete="family-name"
                         value={lastName}
                         onChange={e => setLastName(e.target.value)}
-                        className={`carbon-input ${hasLastNameError ? "carbon-input-error" : ""}`}
+                        className={`input ${hasLastNameError ? "input-error" : ""}`}
                     />
                     {hasLastNameError && (
                         <p
                             id="input-error-lastname"
-                            className="carbon-error-text"
+                            className="error-text"
                             dangerouslySetInnerHTML={{
                                 __html: kcSanitize(lastNameErrorMsg)
                             }}
@@ -283,9 +289,9 @@ export default function Register(props: RegisterProps) {
                                 type="checkbox"
                                 checked={areTermsAccepted}
                                 onChange={e => setAreTermsAccepted(e.target.checked)}
-                                className="carbon-checkbox"
+                                className="checkbox"
                             />
-                            <label htmlFor="termsAccepted" className="carbon-label" style={{ fontSize: "13px" }}>
+                            <label htmlFor="termsAccepted" className="label" style={{ fontSize: "13px" }}>
                                 I accept the terms of service
                             </label>
                         </div>
@@ -305,32 +311,32 @@ export default function Register(props: RegisterProps) {
                         name="register"
                         type="submit"
                         disabled={isSubmitting}
-                        className="carbon-submit-btn"
+                        className="submit-btn"
                     >
                         {isSubmitting ? "Creating account..." : "Create account"}
                     </button>
                 </form>
 
                 {/* Terms of Use & Privacy Policy Notice */}
-                <div className="carbon-terms-container">
+                <div className="terms-container">
                     <span style={{ color: "#647081", fontSize: "14px" }}>
                         By clicking Create account, you agree to our
                     </span>
-                    <div className="carbon-terms-links" style={{ marginTop: "4px" }}>
+                    <div className="terms-links" style={{ marginTop: "4px" }}>
                         <a
-                            href="https://bufferbox.pea.co.th/term-policy"
+                            href="#terms"
                             target="_blank"
                             rel="noreferrer"
-                            style={{ color: "#0C376F", fontWeight: 500, textDecoration: "none" }}
+                            style={{ color: "#2563EB", fontWeight: 500, textDecoration: "none" }}
                         >
                             Term of Use and Privacy Policy
                         </a>
                         <span style={{ color: "#647081", margin: "0 4px" }}>&</span>
                         <a
-                            href="https://bufferbox.pea.co.th/term-policy#privacyPolicySection"
+                            href="#privacy"
                             target="_blank"
                             rel="noreferrer"
-                            style={{ color: "#0C376F", fontWeight: 500, textDecoration: "none" }}
+                            style={{ color: "#2563EB", fontWeight: 500, textDecoration: "none" }}
                         >
                             Privacy Notice
                         </a>
@@ -338,12 +344,12 @@ export default function Register(props: RegisterProps) {
                 </div>
 
                 {/* Already have an account? Log In Link */}
-                <div className="carbon-register-row">
-                    <span className="carbon-register-label">Already have an account?</span>
+                <div className="register-row">
+                    <span className="register-label">Already have an account?</span>
                     <a
                         tabIndex={7}
                         href={url.loginUrl}
-                        className="carbon-register-link"
+                        className="register-link"
                     >
                         Log In
                     </a>

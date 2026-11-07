@@ -32,7 +32,7 @@ export default function LoginVerifyEmail(
 
                 {/* Title */}
                 <h1
-                    className="carbon-title"
+                    className="title"
                     style={{
                         marginTop: "24px",
                         textAlign: "center",
@@ -46,7 +46,7 @@ export default function LoginVerifyEmail(
 
                 {/* Subtitle & Email */}
                 <p
-                    className="carbon-subtitle"
+                    className="subtitle"
                     style={{
                         marginTop: "12px",
                         textAlign: "center"
@@ -72,7 +72,7 @@ export default function LoginVerifyEmail(
                 <a
                     tabIndex={1}
                     href={url.loginAction}
-                    className="carbon-submit-btn"
+                    className="submit-btn"
                     style={{
                         marginTop: "32px",
                         width: "100%",
